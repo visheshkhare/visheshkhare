@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Submission Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container"> <div class="card">
+      <center>
+        <h1>Scheme Submission Form</h1>
+      </center>
+      <form id="dataForm" action="/submitFormData" method="post">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" value="<%= data_list[0].name %>" readonly>
+        </div>
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" value="<%= data_list[0].age %>" readonly>
+        </div>
+        <div class="form-group">
+          <label for="income">Income:</label>
+          <input type="number" id="income" name="income" value="<%= data_list[0].income %>" readonly>
+        </div>
+        <div class="form-group">
+          <label for="sex">Sex:</label>
+          <select id="sex" name="sex" required disabled>
+            <option value="male" <%= data_list[0].sex === 'male' ? 'selected' : '' %>>Male</option>
+            <option value="female" <%= data_list[0].sex === 'female' ? 'selected' : '' %>>Female</option>
+          </select>
+        </div>
+        <div class="form-group" style="text-align: center;">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 2.5em; /* Adjust margin as needed */
+   
+}
+html {
+      height: 100%; /* Set body and html height to 100% */
+      overflow: hidden; /* Prevent scrolling on body and html */
+    }
+
+    .container {
+      display: flex; /* Use flexbox for centering */
+      justify-content: center; /* Horizontally center the card */
+      align-items: center; /* Vertically center the card */
+      width: 100%; /* Set container width to 100% */
+      height: 100%; /* Set container height to 100% */
+    }
+
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 350px; /* Adjust width as needed */
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.form-group {
+  margin-bottom: 1em;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 0.7em 1.5em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45A049; /* Slightly darker green on hover */
+}
+  </style>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Submission Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="card">
+    <center>
+      <h1>Scheme Submission Form</h1>
+    </center>
+    <form id="dataForm" action="/submitFormData" method="post" style="width: 350px;">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= data_list[0].name %>" readonly>
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" value="<%= data_list[0].age %>" readonly>
+      </div>
+      <div class="form-group">
+        <label for="income">Income:</label>
+        <input type="number" id="income" name="income" value="<%= data_list[0].income %>" readonly>
+      </div>
+      <div class="form-group">
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex" required disabled>
+          <option value="male" <%= data_list[0].sex === 'male' ? 'selected' : '' %>>Male</option>
+          <option value="female" <%= data_list[0].sex === 'female' ? 'selected' : '' %>>Female</option>
+        </select>
+      </div>
+      <div class="form-group" style="text-align: center;">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 1.5em; /* Add some margin for better spacing */
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 1em;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1em;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5em;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50; /* Green */
+      color: white;
+      padding: 0.7em 1.5em;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45A049; /* Slightly darker green on hover */
+    }
+  </style>
+</body>
+
+</html> -->
